@@ -1,0 +1,29 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xsl:output method="html" encoding="UTF-8" indent="yes" />
+
+  <xsl:template match="/">
+    <html>
+      <body>
+        <h1>Обратное преобразование</h1>
+        <xsl:apply-templates select="//item" />
+      </body>
+    </html>
+  </xsl:template>
+
+  <xsl:template match="item">
+    <div>
+      <xsl:if test="@parentId='0'">
+        <h3><xsl:value-of select="@author" /></h3>
+      </xsl:if>
+      <ul>
+        <li>
+          <xsl:value-of select="." />
+          <!-- Recursive call for nested items -->
+          <xsl:apply-templates select="../item[@parentId=current()/@id]" />
+        </li>
+      </ul>
+    </div>
+  </xsl:template>
+
+</xsl:stylesheet>

@@ -1,0 +1,7 @@
+<!ELEMENT timetable (complexes, lessons)>
+<!ELEMENT complexes (complex+)>
+<!ELEMENT complex (name, address)>
+<!ATTLIST complex code ID #REQUIRED>
+<!ELEMENT lessons (lesson+)>
+<!ELEMENT lesson (name, address)>
+<!ATTLIST lesson no IDREF #REQUIRED>

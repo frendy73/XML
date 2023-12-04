@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE timetable SYSTEM "timetable.dtd">
+<timetable>
+    <complexes>
+        <complex code="C001">
+            <name>Complex A</name>
+            <address>1234 Street Name, City</address>
+        </complex>
+    </complexes>
+    <lessons>
+        <lesson no="C001">
+            <name>Lesson 1</name>
+            <address>Building 1, Room 101</address>
+        </lesson>
+    </lessons>
+</timetable>

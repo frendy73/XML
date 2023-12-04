@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<notebook xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="notebook.xsd">
+    <offices>
+        <office code="OF001">
+            <person id="P001" office="OF001">
+                <name>John Doe</name>
+                <address>1234 Some Street, Some City</address>
+                <phones>
+                    <phone>123-45-67</phone>
+                </phones>
+            </person>
+        </office>
+    </offices>
+</notebook>

@@ -1,0 +1,16 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="html" encoding="UTF-8" indent="yes" doctype-system="about:legacy-compat" />
+
+  <xsl:template match="/">
+    <html>
+      <head>
+        <title>Sum of Numbers</title>
+      </head>
+      <body>
+        <h1>Sum of Numbers</h1>
+        <p>Total Sum: <xsl:value-of select="sum(//item/@value)" /></p>
+      </body>
+    </html>
+  </xsl:template>
+
+</xsl:stylesheet>

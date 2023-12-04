@@ -1,0 +1,42 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="html" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN" doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
+  <xsl:template match="/">
+    <html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Города</title>
+      </head>
+      <body>
+        <h1>Города и компании</h1>
+        <ul>
+          <xsl:for-each select="orgs/item">
+            <xsl:sort select="@city"/>
+            <xsl:if test="not(@city = preceding-sibling::item/@city)">
+              <li>
+                <h3><xsl:value-of select="@city"/></h3>
+                <p>Всего товаров: <xsl:value-of select="sum(preceding-sibling::item[@city = current()/@city]/@value) + @value"/></p>
+                <ul>
+                  <xsl:for-each select="preceding-sibling::item[@city = current()/@city]">
+                    <xsl:sort select="@org"/>
+                    <xsl:if test="not(@org = preceding-sibling::item[@org = current()/@org]/@org)">
+                      <li>
+                        <h4><xsl:value-of select="@org"/></h4>
+                        <p>Всего товаров: <xsl:value-of select="sum(preceding-sibling::item[@org = current()/@org]/@value) + @value"/></p>
+                        <ul>
+                          <xsl:for-each select="preceding-sibling::item[@org = current()/@org]">
+                            <li><xsl:value-of select="@title"/></li>
+                          </xsl:for-each>
+                          <li><xsl:value-of select="@title"/></li>
+                        </ul>
+                      </li>
+                    </xsl:if>
+                  </xsl:for-each>
+                </ul>
+              </li>
+            </xsl:if>
+          </xsl:for-each>
+        </ul>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>

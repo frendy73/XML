@@ -1,0 +1,31 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  
+  <xsl:output method="html" doctype-public="XSLT-compat" encoding="UTF-8" indent="yes"/>
+  
+  <xsl:template match="/">
+    <html>
+      <head>
+        <title>Инвентарь</title>
+      </head>
+      <body>
+        <h2>Задание 1</h2>
+        <table border="1">
+          <tr>
+            <th>Тип</th>
+            <th>Наменование</th>
+          </tr>
+          <xsl:apply-templates select="items/element"/>
+        </table>
+        <p>Всего элементов: <xsl:value-of select="count(items/element)"/></p>
+      </body>
+    </html>
+  </xsl:template>
+  
+  <xsl:template match="element">
+    <tr>
+      <td><xsl:value-of select="@name"/></td>
+      <td><xsl:value-of select="@value"/></td>
+    </tr>
+  </xsl:template>
+
+</xsl:stylesheet>
